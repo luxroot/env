@@ -38,24 +38,6 @@ let g:vimshell_force_overwrite_statusline = 0
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => ocamlformat
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:neoformat_ocaml_ocamlformat = {
-            \ 'exe': 'ocamlformat',
-            \ 'no_append': 1,
-            \ 'stdin': 1,
-            \ 'args': ['--enable-outside-detected-project', '--name', '"%:p"', '-']
-            \ }
-
-let g:neoformat_enabled_ocaml = ['ocamlformat']
-
-augroup fmt
-  autocmd!
-  autocmd BufWritePre *.ml,*.mli,*.sh,*.py,*.json,dune,*.c try | undojoin | Neoformat | catch /^Vim\%((\a\+)\)\=:E790/ | finally | silent Neoformat | endtry
-augroup END
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => clang-format
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if has('mac')
@@ -93,16 +75,3 @@ nnoremap <leader>d :YcmCompleter GoToDeclaration<CR>
 nnoremap <leader>t :YcmCompleter GetType<CR>
 nnoremap <leader>p :YcmCompleter GetParent<CR>
 nnoremap <leader>f :YcmCompleter FixIt<CR>
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Merlin with syntastic
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:syntastic_ocaml_checkers = ['merlin']
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
