@@ -8,8 +8,6 @@ sudo ./install-package.sh
 ./install-etc.sh
 ```
 
-First install zsh and run `chsh` to make it your default shell
-
 ## Z Shell
 - [Oh My Zsh](https://ohmyz.sh)
 - [Syntac highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
