@@ -1,4 +1,5 @@
 ```
+cd ~
 git clone https://github.com/luxroot/env
 cd env
 sudo ./ch_apt.sh
